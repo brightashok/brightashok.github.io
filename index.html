@@ -16,22 +16,22 @@ header {
   background: linear-gradient(45deg, black, red);
   color:white;
   text-align:center;
-  padding:20px;
+  padding:10px;
 }
 
-section {padding:30px;}
+section {padding:20px;}
 
 .services {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
 }
 
 .card {
   background:white;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 5px 10px rgba(0,0,0,0.1);
+  padding:15px;
+  border-radius:8px;
+  box-shadow:0 3px 6px rgba(0,0,0,0.1);
   text-align:center;
 }
 
@@ -39,13 +39,13 @@ footer {
   background:black;
   color:white;
   text-align:center;
-  padding:15px;
+  padding:10px;
 }
 
 .btn {
   display:inline-block;
   margin:10px;
-  padding:12px 20px;
+  padding:10px 15px;
   background:red;
   color:white;
   text-decoration:none;
@@ -61,6 +61,10 @@ footer {
   padding:15px;
   border-radius:50%;
   text-decoration:none;
+}
+input, select {
+  width:90%;
+  padding:10px;
 }
 </style>
 
@@ -86,55 +90,49 @@ footer {
 
 <div class="card">Online Form</div>
 <div class="card">Scanning</div>
-<div class="card">B/W & Color Print</div>
+<div class="card">Print (B/W & Color)</div>
 <div class="card">Bill Payment</div>
-<div class="card">Urgent Passport</div>
+<div class="card">Passport Service</div>
 <div class="card">Photo Copy</div>
-<div class="card">Typing Hindi/English</div>
+<div class="card">Typing</div>
 <div class="card">Lamination</div>
 <div class="card">Railway Ticket</div>
-<div class="card">New PAN Card</div>
+<div class="card">PAN Card</div>
 <div class="card">Resume</div>
-<div class="card">NIOS / IGNOU / DU</div>
-<div class="card">Passport Apply</div>
-<div class="card">Cyber Crime</div>
-<div class="card">PCC Online</div>
-<div class="card">FIR Lost/Theft</div>
+<div class="card">Admissions</div>
 
 </div>
 </section>
 
 <section>
-<h2>Contact Us</h2>
+<h2>Contact</h2>
 
 <p>
-📍 DSIDC Complex, Market 2nd Floor, Shop No. C-2,<br>
-Opp. Mayur Vihar Phase-1 Police Station, Delhi-110091
+📍 DSIDC Complex, Shop C-2, Mayur Vihar Phase-1, Delhi
 </p>
 
-<a class="btn" href="tel:9560983773">📞 Call Now</a>
+<a class="btn" href="tel:9560983773">📞 Call</a>
 <a class="btn" href="https://wa.me/918766344570">💬 WhatsApp</a>
 
 </section>
 
 <section>
-<h2>Send Document for Print (A4)</h2>
+<h2>Send Document for A4 Print</h2>
 
 <form onsubmit="sendToWhatsApp(); return false;">
-<input type="text" id="name" placeholder="Your Name" required style="width:90%;padding:10px;"><br><br>
-<input type="tel" id="mobile" placeholder="Mobile Number" required style="width:90%;padding:10px;"><br><br>
+<input type="text" id="name" placeholder="Your Name" required><br><br>
+<input type="tel" id="mobile" placeholder="Mobile Number" required><br><br>
 
-<select id="printType" style="width:90%;padding:10px;">
+<select id="printType">
 <option>A4 Black & White</option>
 <option>A4 Color</option>
 </select><br><br>
 
-<input type="file" required style="width:90%;"><br><br>
+<input type="file"><br><br>
 
-<button type="submit" style="padding:10px 20px;background:red;color:white;border:none;">
-Send on WhatsApp
-</button>
+<button type="submit" class="btn">Send on WhatsApp</button>
 </form>
+
 </section>
 
 <footer>
@@ -147,7 +145,7 @@ Send on WhatsApp
 let slides = document.querySelectorAll('.slide');
 let index = 0;
 
-setInterval(() => {
+setInterval(function() {
   slides[index].classList.remove('active');
   index = (index + 1) % slides.length;
   slides[index].classList.add('active');
@@ -158,11 +156,9 @@ function sendToWhatsApp() {
   let mobile = document.getElementById("mobile").value;
   let printType = document.getElementById("printType").value;
 
-  let message = `Name: ${name}%0AMobile: ${mobile}%0APrint: ${printType}%0APlease send file`;
+  let msg = "Name: " + name + "%0AMobile: " + mobile + "%0APrint: " + printType;
 
-  let url = "https://wa.me/918766344570?text=" + message;
-
-  window.open(url, '_blank');
+  window.open("https://wa.me/918766344570?text=" + msg);
 }
 </script>
 
