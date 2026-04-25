@@ -6,39 +6,18 @@
 <title>Bright Ashoks Cafe</title>
 
 <style>
-  .slider {
-  width:100%;
-}
-
-.slide {
-  width:100%;
-  display:none;
-}
-
-.slide.active {
-  display:block;
-}
-  <script>
-let slides = document.querySelectorAll('.slide');
-let index = 0;
-
-setInterval(() => {
-  slides[index].classList.remove('active');
-  index = (index + 1) % slides.length;
-  slides[index].classList.add('active');
-}, 3000);
-</script>
 body {margin:0;font-family:Arial;background:#f5f5f5;}
+
+.slider { width:100%; }
+.slide { width:100%; display:none; }
+.slide.active { display:block; }
 
 header {
   background: linear-gradient(45deg, black, red);
   color:white;
   text-align:center;
-  padding:40px 20px;
+  padding:20px;
 }
-
-header h1 {margin:0;font-size:32px;}
-header p {margin:5px;}
 
 section {padding:30px;}
 
@@ -54,17 +33,13 @@ section {padding:30px;}
   border-radius:10px;
   box-shadow:0 5px 10px rgba(0,0,0,0.1);
   text-align:center;
-  transition:0.3s;
 }
 
-.card:hover {
-  transform:scale(1.05);
-}
-
-h2 {text-align:center;}
-
-.contact {
+footer {
+  background:black;
+  color:white;
   text-align:center;
+  padding:15px;
 }
 
 .btn {
@@ -77,14 +52,6 @@ h2 {text-align:center;}
   border-radius:5px;
 }
 
-footer {
-  background:black;
-  color:white;
-  text-align:center;
-  padding:15px;
-}
-
-/* WhatsApp floating */
 .whatsapp {
   position:fixed;
   bottom:20px;
@@ -93,10 +60,10 @@ footer {
   color:white;
   padding:15px;
   border-radius:50%;
-  font-size:20px;
   text-decoration:none;
 }
 </style>
+
 </head>
 
 <body>
@@ -137,7 +104,7 @@ footer {
 </div>
 </section>
 
-<section class="contact">
+<section>
 <h2>Contact Us</h2>
 
 <p>
@@ -146,22 +113,58 @@ Opp. Mayur Vihar Phase-1 Police Station, Delhi-110091
 </p>
 
 <a class="btn" href="tel:9560983773">📞 Call Now</a>
-<a class="btn" href="https://wa.me/919560983773">💬 WhatsApp</a>
+<a class="btn" href="https://wa.me/918766344570">💬 WhatsApp</a>
 
-<br><br>
+</section>
 
-<iframe 
-src="https://maps.google.com/maps?q=Mayur%20Vihar%20Phase%201&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%" height="250" style="border:0;">
-</iframe>
+<section>
+<h2>Send Document for Print (A4)</h2>
 
+<form onsubmit="sendToWhatsApp(); return false;">
+<input type="text" id="name" placeholder="Your Name" required style="width:90%;padding:10px;"><br><br>
+<input type="tel" id="mobile" placeholder="Mobile Number" required style="width:90%;padding:10px;"><br><br>
+
+<select id="printType" style="width:90%;padding:10px;">
+<option>A4 Black & White</option>
+<option>A4 Color</option>
+</select><br><br>
+
+<input type="file" required style="width:90%;"><br><br>
+
+<button type="submit" style="padding:10px 20px;background:red;color:white;border:none;">
+Send on WhatsApp
+</button>
+</form>
 </section>
 
 <footer>
 © 2026 Bright Ashoks Cafe
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919560983773">💬</a>
+<a class="whatsapp" href="https://wa.me/918766344570">💬</a>
+
+<script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 3000);
+
+function sendToWhatsApp() {
+  let name = document.getElementById("name").value;
+  let mobile = document.getElementById("mobile").value;
+  let printType = document.getElementById("printType").value;
+
+  let message = `Name: ${name}%0AMobile: ${mobile}%0APrint: ${printType}%0APlease send file`;
+
+  let url = "https://wa.me/918766344570?text=" + message;
+
+  window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>
