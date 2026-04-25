@@ -19,6 +19,14 @@ header {
   padding:10px;
 }
 
+/* Text Slider */
+.text-slider {
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* Services */
 section {padding:20px;}
 
 .services {
@@ -35,13 +43,19 @@ section {padding:20px;}
   text-align:center;
 }
 
-footer {
-  background:black;
-  color:white;
-  text-align:center;
-  padding:10px;
+/* Gallery */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:10px;
 }
 
+.gallery img {
+  width:100%;
+  border-radius:10px;
+}
+
+/* Buttons */
 .btn {
   display:inline-block;
   margin:10px;
@@ -52,6 +66,15 @@ footer {
   border-radius:5px;
 }
 
+/* Footer */
+footer {
+  background:black;
+  color:white;
+  text-align:center;
+  padding:10px;
+}
+
+/* WhatsApp */
 .whatsapp {
   position:fixed;
   bottom:70px;
@@ -60,9 +83,9 @@ footer {
   color:white;
   padding:15px;
   border-radius:50%;
-  text-decoration:none;
 }
 
+/* Bottom Menu */
 .bottom-menu {
   position:fixed;
   bottom:0;
@@ -78,6 +101,7 @@ footer {
   text-decoration:none;
 }
 
+/* Form */
 input, select {
   width:90%;
   padding:10px;
@@ -91,14 +115,15 @@ input, select {
 <header>
 
 <div class="slider">
-  <img src="logo1.png" class="slide active">
+  <img src="logo.png" class="slide active">
   <img src="logo2.png" class="slide">
   <img src="logo3.png" class="slide">
   <img src="logo4.png" class="slide">
   <img src="logo5.png" class="slide">
 </div>
 
-<p>Document Solution Center</p>
+<div class="text-slider" id="textSlider">🚀 Fast Service</div>
+
 <p>📞 9560983773 | 8766344570</p>
 
 </header>
@@ -126,9 +151,7 @@ input, select {
 <section>
 <h2>Contact</h2>
 
-<p>
-📍 DSIDC Complex, Shop C-2, Mayur Vihar Phase-1, Delhi
-</p>
+<p>📍 DSIDC Complex, Shop C-2, Mayur Vihar Phase-1, Delhi</p>
 
 <a class="btn" href="tel:9560983773">📞 Call</a>
 <a class="btn" href="https://wa.me/918766344570">💬 WhatsApp</a>
@@ -154,6 +177,32 @@ input, select {
 
 </section>
 
+<!-- Gallery -->
+<section>
+<h2>Gallery</h2>
+
+<div class="gallery">
+  <img src="logo.png">
+  <img src="logo2.png">
+  <img src="logo3.png">
+  <img src="logo4.png">
+  <img src="logo5.png">
+</div>
+
+</section>
+
+<!-- UPI Payment -->
+<section>
+<h2>Pay Online</h2>
+
+<p>Scan & Pay using UPI</p>
+
+<a href="upi://pay?pa=YOURUPI@upi&pn=BrightAshoksCafe&cu=INR" class="btn">
+💳 Pay Now
+</a>
+
+</section>
+
 <footer>
 © 2026 Bright Ashoks Cafe
 </footer>
@@ -167,15 +216,33 @@ input, select {
 </div>
 
 <script>
+// Image Slider
 let slides = document.querySelectorAll('.slide');
 let index = 0;
 
-setInterval(function() {
+setInterval(() => {
   slides[index].classList.remove('active');
   index = (index + 1) % slides.length;
   slides[index].classList.add('active');
+}, 3000);
+
+// Text Slider
+let texts = [
+"🚀 Fast Service",
+"💯 Genuine Work",
+"📄 All Document Services",
+"📞 Call Anytime",
+"🖨️ Instant Print Available"
+];
+
+let textIndex = 0;
+
+setInterval(() => {
+  document.getElementById("textSlider").innerText = texts[textIndex];
+  textIndex = (textIndex + 1) % texts.length;
 }, 2000);
 
+// WhatsApp Form
 function sendToWhatsApp() {
   let name = document.getElementById("name").value;
   let mobile = document.getElementById("mobile").value;
