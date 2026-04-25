@@ -6,6 +6,28 @@
 <title>Bright Ashoks Cafe</title>
 
 <style>
+  .slider {
+  width:100%;
+}
+
+.slide {
+  width:100%;
+  display:none;
+}
+
+.slide.active {
+  display:block;
+}
+  <script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 3000);
+</script>
 body {margin:0;font-family:Arial;background:#f5f5f5;}
 
 header {
@@ -80,9 +102,15 @@ footer {
 <body>
 
 <header>
-  <img src="logo.png" style="width:100%; height:auto; display:block;">
-  <p>Document Solution Center</p>
-  <p>📞 9560983773 | 8766344570</p>
+
+<div class="slider">
+  <img src="logo.png" class="slide active">
+  <img src="logo.png" class="slide">
+</div>
+
+<p>Document Solution Center</p>
+<p>📞 9560983773 | 8766344570</p>
+
 </header>
 
 <section>
