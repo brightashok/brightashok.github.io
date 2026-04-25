@@ -54,7 +54,7 @@ footer {
 
 .whatsapp {
   position:fixed;
-  bottom:20px;
+  bottom:70px;
   right:20px;
   background:#25D366;
   color:white;
@@ -62,6 +62,22 @@ footer {
   border-radius:50%;
   text-decoration:none;
 }
+
+.bottom-menu {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:black;
+  display:flex;
+  justify-content:space-around;
+  padding:10px;
+}
+
+.bottom-menu a {
+  color:white;
+  text-decoration:none;
+}
+
 input, select {
   width:90%;
   padding:10px;
@@ -75,14 +91,9 @@ input, select {
 <header>
 
 <div class="slider">
-  <img src="logo.png" class="slide active">
-  <img src="logo.png" class="slide">
-  <img src="logo1.png" class="slide">
+  <img src="logo1.png" class="slide active">
   <img src="logo2.png" class="slide">
   <img src="logo3.png" class="slide">
-  <img src="logo4.png" class="slide">
-  <img src="logo5.png" class="slide">
-  
 </div>
 
 <p>Document Solution Center</p>
@@ -147,6 +158,12 @@ input, select {
 
 <a class="whatsapp" href="https://wa.me/918766344570">💬</a>
 
+<div class="bottom-menu">
+  <a href="tel:9560983773">📞 Call</a>
+  <a href="https://wa.me/918766344570">💬 WhatsApp</a>
+  <a href="#">📍 Location</a>
+</div>
+
 <script>
 let slides = document.querySelectorAll('.slide');
 let index = 0;
@@ -155,7 +172,7 @@ setInterval(function() {
   slides[index].classList.remove('active');
   index = (index + 1) % slides.length;
   slides[index].classList.add('active');
-}, 5000);
+}, 4500);
 
 function sendToWhatsApp() {
   let name = document.getElementById("name").value;
@@ -168,26 +185,5 @@ function sendToWhatsApp() {
 }
 </script>
 
-</body> <div class="bottom-menu">
-  <a href="tel:9560983773">📞 Call</a>
-  <a href="https://wa.me/918766344570">💬 WhatsApp</a>
-  <a href="#">📍 Location</a>
-</div>
-
-<style>
-.bottom-menu {
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:black;
-  display:flex;
-  justify-content:space-around;
-  padding:10px;
-}
-
-.bottom-menu a {
-  color:white;
-  text-decoration:none;
-}
-</style>
+</body>
 </html>
